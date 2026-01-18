@@ -1,4 +1,4 @@
-# Yoga Workshop Booking System
+#Workshop Booking System
 
 ## Setup
 
@@ -33,7 +33,3 @@ Create `.env.example` (this CAN be committed to git):
 # Server Configuration
 GIN_MODE=release
 PORT=8080
-
-# Default Admin Credentials (change after first login!)
-DEFAULT_ADMIN_USERNAME=admin
-DEFAULT_ADMIN_PASSWORD=changeme
