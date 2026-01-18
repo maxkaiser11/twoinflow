@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yoga & Sound Healing Workshop</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <a href="/admin" class="admin-button">Admin</a>
+
+    <div class="container">
+      <header>
+        <h1>{{.Workshop.Title}}</h1>
+      </header>
+
+      <main>
+        {{if .Success}}
+        <div class="success-message">
+          ✓ Thank you for signing up! We'll see you at the workshop.
+        </div>
+        {{end}} {{if .Error}}
+        <div class="error-message">✗ {{.Error}}</div>
+        {{end}}
+
+        <section class="workshop-info">
+          <p class="date">📅 {{.Workshop.Date}}</p>
+          <p class="location">📍 {{.Workshop.Location}}</p>
+          <p class="description">{{.Workshop.Description}}</p>
+        </section>
+
+        {{if lt .Workshop.SignupCount .Workshop.MaxCapacity}}
+        <section class="signup-form">
+          <h2>Sign Up</h2>
+          <form action="/signup" method="POST">
+            <input type="hidden" name="workshop_id" value="{{.Workshop.ID}}" />
+
+            <label for="first_name">First Name *</label>
+            <input type="text" id="first_name" name="first_name" required />
+
+            <label for="last_name">Last Name *</label>
+            <input type="text" id="last_name" name="last_name" required />
+
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="phone">Phone</label>
+            <div class="phone-input-group">
+              <select
+                id="country_code"
+                name="country_code"
+                class="country-code-select"
+              >
+                <option value="+1">🇺🇸 +1</option>
+                <option value="+44">🇬🇧 +44</option>
+                <option value="+41" selected>🇨🇭 +41</option>
+                <option value="+49">🇩🇪 +49</option>
+                <option value="+33">🇫🇷 +33</option>
+                <option value="+39">🇮🇹 +39</option>
+                <option value="+34">🇪🇸 +34</option>
+                <option value="+31">🇳🇱 +31</option>
+                <option value="+32">🇧🇪 +32</option>
+                <option value="+43">🇦🇹 +43</option>
+                <option value="+351">🇵🇹 +351</option>
+                <option value="+46">🇸🇪 +46</option>
+                <option value="+47">🇳🇴 +47</option>
+                <option value="+45">🇩🇰 +45</option>
+                <option value="+358">🇫🇮 +358</option>
+                <option value="+91">🇮🇳 +91</option>
+                <option value="+86">🇨🇳 +86</option>
+                <option value="+81">🇯🇵 +81</option>
+                <option value="+61">🇦🇺 +61</option>
+                <option value="+64">🇳🇿 +64</option>
+                <option value="+52">🇲🇽 +52</option>
+                <option value="+55">🇧🇷 +55</option>
+              </select>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="phone-number-input"
+                pattern="[0-9\s\-\(\)]{7,}"
+                title="Please enter a valid phone number"
+                placeholder="123 456 7890"
+              />
+            </div>
+
+            <button type="submit">Reserve Your Spot</button>
+          </form>
+        </section>
+        {{else}}
+        <section class="full">
+          <p>
+            This workshop is currently full. Please check back for future
+            workshops!
+          </p>
+        </section>
+        {{end}}
+      </main>
+    </div>
+  </body>
+</html>
