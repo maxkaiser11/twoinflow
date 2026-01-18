@@ -1,4 +1,4 @@
-#Workshop Booking System
+## Workshop Booking System
 
 ## Setup
 
