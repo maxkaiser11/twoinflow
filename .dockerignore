@@ -1,0 +1,11 @@
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+.git
+.gitignore
+README.md
+.env
+yoga.db
+workshops.db
+.DS_Store
