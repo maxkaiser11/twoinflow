@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #Workshop Booking System
+=======
+## Workshop Booking System
+>>>>>>> b671b77315e818f2a9712a0d7cc2d20fcdecda34
 
 ## Setup
 
@@ -32,4 +36,8 @@ Create `.env.example` (this CAN be committed to git):
 ```
 # Server Configuration
 GIN_MODE=release
+<<<<<<< HEAD
 PORT=8080
+=======
+PORT=8080
+>>>>>>> b671b77315e818f2a9712a0d7cc2d20fcdecda34
